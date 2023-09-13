@@ -9,6 +9,8 @@ import { ChannelsComponent } from './channels/channels.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { GroupManagementComponent } from './group-management/group-management.component';
 import { ChannelManagementComponent } from './channel-management/channel-management.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import { ChannelManagementComponent } from './channel-management/channel-managem
     ChannelManagementComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
