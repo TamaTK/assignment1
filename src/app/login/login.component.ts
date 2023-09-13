@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username = '';
   password = '';
+  errorMessage = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -20,6 +21,7 @@ export class LoginComponent {
         console.log('Next callback called with response:', response);
         if (response && response.user) {
           // Authentication successful, navigate to the groups page
+          alert("Authentication successful");
           this.router.navigate(['/groups']);
         } else {
           // Authentication failed, handle the error or display an error message
@@ -27,8 +29,8 @@ export class LoginComponent {
         }
       },
       error: (error) => {
+        this.errorMessage = 'Login failed. Please check your credentials.';
         console.error('Error callback called with error:', error);
-        // Handle HTTP error or display an error message
         console.error('An error occurred:', error);
       },
     });
