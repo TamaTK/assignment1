@@ -1,9 +1,6 @@
-// login.component.ts
-
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-login',
@@ -17,8 +14,10 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    this.authService.login(this.username, this.password).subscribe(
-      (response) => {
+    console.log('Login method called')
+    this.authService.login(this.username, this.password).subscribe({
+      next: (response) => {
+        console.log('Next callback called with response:', response);
         if (response && response.user) {
           // Authentication successful, navigate to the groups page
           this.router.navigate(['/groups']);
@@ -27,10 +26,11 @@ export class LoginComponent {
           console.error('Authentication failed');
         }
       },
-      (error) => {
+      error: (error) => {
+        console.error('Error callback called with error:', error);
         // Handle HTTP error or display an error message
         console.error('An error occurred:', error);
-      }
-    );
+      },
+    });
   }
 }

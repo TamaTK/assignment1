@@ -20,6 +20,24 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 
+const users = [
+  { username: 'super', password: '123', roles: ['superadmin'] },
+  // Add more user data here
+];
+
+app.post('/login', (req, res) => {
+  console.log('Received a login request');
+  const { username, password } = req.body;
+
+  if (username === 'super' && password === '123') {
+    // Authentication successful
+    res.status(200).json({ message: 'Authentication successful', user: { username } }); 
+  } else {
+    // Authentication failed
+    res.status(401).json({ message: 'Authentication failed' });
+  }
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -32,21 +50,8 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 });
 
-const users = [
-  { username: 'super', password: '123', roles: ['superadmin'] },
-  // Add more user data here
-];
 
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
 
-  if (username === 'super' && password === '123') {
-    // Authentication successful
-    res.status(200).json({ message: 'Authentication successful', user: { username } }); 
-  } else {
-    // Authentication failed
-    res.status(401).json({ message: 'Authentication failed' });
-  }
-});
+
 
 module.exports = app;
