@@ -1,27 +1,30 @@
-# Assignment1
+# Assignment Phase 1 3813
+This assignment is for Software Frameworks 3813ICT. The following documentation outlines my implementation. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+# Organisation of Git Repo
+As soon as there is a modular, working change to the assignment,
+I push and commit changes to the repo on GitHub. I have used branches in the instance of when the modular change is not working because another component, service, or something modular is required to fix an error.
 
-## Development server
+# Angular Architecture (Components, Services, Routes, Models)
+Models:
+ user,
+ role,
+ group,
+ channel
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Components:
+ login
+ groups
+ channels
+ user-management
+ group-management
+ channel-management
 
-## Code scaffolding
+ 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Data Structures (Client and Server Side)
 
-## Build
+# List of server side routes, paramaters, return values and purpose
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Interaction between client and server
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
